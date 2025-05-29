@@ -1,3 +1,4 @@
+
 import cv2
 import mediapipe as mp
 import numpy as np
@@ -52,14 +53,14 @@ while True:
         length = math.hypot(x2-x1, y2-y2)
         #print(length)
 
-        vol = np.interp(length,[0, 150], [min_vol, max_vol])
-        vol_bar = np.interp(length,[0, 150], [400, 150])
-        percentage = np.interp(length,[0, 150], [0, 100])
+        vol = np.interp(length,[0, 200], [min_vol, max_vol])
+        vol_bar = np.interp(length,[0, 200], [400, 150])
+        percentage = np.interp(length,[0, 200], [0, 100])
         print(int(length),vol)
         volume.SetMasterVolumeLevel(vol, None)
 
 
-        if length<20:
+        if length<30:
             cv2.circle(img,(int(cx),int(cy)), 10, (0, 255, 0), cv2.FILLED)
 
     cv2.rectangle(img, (50,150), (85,400), (255, 0, 0), 3) 
